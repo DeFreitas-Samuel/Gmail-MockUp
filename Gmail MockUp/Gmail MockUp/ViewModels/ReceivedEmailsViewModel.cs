@@ -12,14 +12,13 @@ namespace Gmail_MockUp.ViewModels
 {
     class ReceivedEmailsViewModel
     {
-        public ObservableCollection<Email> Mails { get; } = new ObservableCollection<Email>()
-        {
-            new Email("Hello", "At least I can say that I've tried", DateTime.Parse("08/18/2018"), "From the other side", true)
-
-        };
+        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>();
 
         public ReceivedEmailsViewModel()
         {
+            Emails.Add(new Email("Saludos", "Le estamos escribiendo para informarle", DateTime.Today, "Banco", true));
+            Emails.Add(new Email("Bendiciones", "Le estamos escribiendo para bendecirle", DateTime.Today, "Papa", true));
+            Emails.Add(new Email("Estudie", "Le estamos escribiendo para que estudie", DateTime.Today, "Profesor", true));
             CreateEmailCommand = new Command(CreateEmail);
         } 
 

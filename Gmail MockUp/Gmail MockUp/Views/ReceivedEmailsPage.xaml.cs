@@ -16,7 +16,6 @@ namespace Gmail_MockUp.Views
         public ReceivedEmailsPage()
         {
             InitializeComponent();
-            BindingContext = new ReceivedEmailsViewModel();
         }
     }
 }

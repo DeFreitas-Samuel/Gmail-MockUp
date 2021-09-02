@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:Gmail_MockUp.ViewModels" 
-             x:DataType="viewmodels:ReceivedEmailsViewModel"
+             xmlns:viewModels="clr-namespace:Gmail_MockUp.ViewModels" 
              x:Class="Gmail_MockUp.Views.ReceivedEmailsPage"
              Title="Primary">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="hamburger_button_icon"/>
         <ToolbarItem IconImageSource="search_magnifier_icon"/>
     </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <viewModels:ReceivedEmailsViewModel/>
+    </ContentPage.BindingContext>
     <StackLayout>
-        <CollectionView ItemsSource="{Binding Mails}">
+        <CollectionView ItemsSource="{Binding Emails}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
-                        <SwipeView.LeftItems>
+                        <SwipeView.RightItems>
                             <SwipeItems>
                                 <SwipeItem Text="Delete"/>
                             </SwipeItems>
-                        </SwipeView.LeftItems>
+                        </SwipeView.RightItems>
                         <Grid RowDefinitions="3*,3*,3*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
                             <Image Source="avatar_profile_picture"
                                    Grid.Column="0"
@@ -26,7 +28,7 @@
                                    Grid.RowSpan="3"
                                    Margin="10,0,0,0"
                                    />
-                            <Label Text="{Binding Title, Mode=OneWay}" 
+                            <Label Text="{Binding From}" 
                                    Grid.Row="0"
                                    Grid.Column="1"
                                    FontSize="Medium"
@@ -36,13 +38,13 @@
                                    Grid.Row="0"
                                    Grid.Column="2"                              
                                    TextColor="Blue"/>
-                            <Label Text="Hello"
+                            <Label Text="{Binding Title}"
                                    Grid.Row="1"
                                    Grid.Column="1"
                                    FontSize="Medium"
                                    Margin="10,0,0,0"
                                    FontAttributes="Bold"/>
-                            <Label Text="At least I can say that've tried..."
+                            <Label Text="{Binding Description}"
                                    Grid.Row="2"
                                    Grid.Column="1"
                                    Margin="10,0,0,0"

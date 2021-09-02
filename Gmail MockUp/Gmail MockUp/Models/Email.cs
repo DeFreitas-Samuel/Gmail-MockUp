@@ -6,11 +6,11 @@ namespace Gmail_MockUp.Models
 {
     class Email
     {
-        public string Title { get; }
-        public string Description { get; }
-        public DateTime DateReceived { get; }
-        public string From { get; }
-        public bool HasAttachment { get; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime DateReceived { get; set; }
+        public string From { get; set; }
+        public bool HasAttachment { get; set; }
 
         public Email(string title, string description, DateTime dateReceived, string from, bool hasAttachment)
         {
