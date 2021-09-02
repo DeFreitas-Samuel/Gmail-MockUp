@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Gmail_MockUp.Models
 {
-    class Email
+    public class Email
     {
         public string Title { get; set; }
         public string Description { get; set; }

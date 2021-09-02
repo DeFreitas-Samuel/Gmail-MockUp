@@ -12,22 +12,48 @@ namespace Gmail_MockUp.ViewModels
 {
     class ReceivedEmailsViewModel
     {
-        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>();
+        private Email _selectedEmail;
+        public Email SelectedEmail 
+        {
+            get 
+            { 
+                return _selectedEmail; 
+            }
+            set 
+            {
+                _selectedEmail = value;
+                if (_selectedEmail != null)
+                {
+                    ViewEmailCommand.Execute(_selectedEmail);
+                }
+            }
+        }
+        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>() 
+        {
+            new Email("Saludos", "Le estamos escribiendo para informarle", DateTime.Today, "Banco", true),
+            new Email("Bendiciones", "Le estamos escribiendo para bendecirle", DateTime.Today, "Papa", true),
+            new Email("Estudie", "Le estamos escribiendo para que estudie", DateTime.Today, "Profesor", true)
+        
+        };
 
         public ReceivedEmailsViewModel()
         {
-            Emails.Add(new Email("Saludos", "Le estamos escribiendo para informarle", DateTime.Today, "Banco", true));
-            Emails.Add(new Email("Bendiciones", "Le estamos escribiendo para bendecirle", DateTime.Today, "Papa", true));
-            Emails.Add(new Email("Estudie", "Le estamos escribiendo para que estudie", DateTime.Today, "Profesor", true));
-            CreateEmailCommand = new Command(CreateEmail);
+            CreateEmailCommand = new Command(OnCreateEmail);
+            ViewEmailCommand = new Command<Email>(OnViewEmail);
         } 
 
-        private async void CreateEmail()
+        private async void OnCreateEmail()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new CreateEmailPage());
         }
 
+        private async void OnViewEmail(Email email)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ViewEmailPage(_selectedEmail));
+        }
+
         public ICommand CreateEmailCommand { get; }
+        public ICommand ViewEmailCommand { get; }
 
     }
 }
