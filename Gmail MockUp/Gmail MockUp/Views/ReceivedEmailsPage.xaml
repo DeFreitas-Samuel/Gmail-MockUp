@@ -12,16 +12,17 @@
         <viewModels:ReceivedEmailsViewModel/>
     </ContentPage.BindingContext>
     <StackLayout>
-        <CollectionView ItemsSource="{Binding Emails}">
+        <CollectionView ItemsSource="{Binding Emails}" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Delete"/>
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="Red"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid RowDefinitions="3*,3*,3*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
+                        <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
                             <Image Source="avatar_profile_picture"
                                    Grid.Column="0"
                                    Grid.Row="0"
@@ -32,27 +33,37 @@
                                    Grid.Row="0"
                                    Grid.Column="1"
                                    FontSize="Medium"
-                                   Margin="10,0,0,0"
+                                   Margin="10,10,0,0"
                                    FontAttributes="Bold"/>
                             <Label Text="2:13 PM" 
                                    Grid.Row="0"
-                                   Grid.Column="2"                              
+                                   Grid.Column="2"
+                                   Margin="0,10,0,0"
                                    TextColor="Blue"/>
                             <Label Text="{Binding Title}"
                                    Grid.Row="1"
                                    Grid.Column="1"
                                    FontSize="Medium"
-                                   Margin="10,0,0,0"
+                                   Margin="10,-2,0,0"
                                    FontAttributes="Bold"/>
                             <Label Text="{Binding Description}"
                                    Grid.Row="2"
                                    Grid.Column="1"
-                                   Margin="10,0,0,0"
-                                   FontSize="Medium"/>
+                                   Margin="10,-17,0,10"
+                                   FontSize="Medium"
+                                   />
                             <Image Source="star_favourite_icon"
-                                   Grid.Row="2"
+                                   Grid.Row="1"
                                    Grid.Column="2"
+                                   Margin="0,15,0,0"
                                    HeightRequest="20"/>
+                            <BoxView   VerticalOptions="Start"
+                                       HorizontalOptions="Start"
+                                       HeightRequest="0.1"
+                                       WidthRequest="1000"  
+                                       Color="#5b5d68"
+                                       Grid.Row="3"
+                                       Grid.ColumnSpan="3"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>
