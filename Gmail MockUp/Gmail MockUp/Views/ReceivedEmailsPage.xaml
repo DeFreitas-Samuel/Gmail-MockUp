@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Gmail_MockUp.ViewModels" 
+             x:DataType="viewmodels:ReceivedEmailsViewModel"
+             x:Class="Gmail_MockUp.Views.ReceivedEmailsPage"
+             Title="Primary">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="hamburger_button_icon"/>
+        <ToolbarItem IconImageSource="search_magnifier_icon"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <CollectionView ItemsSource="{Binding Mails}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"/>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <Grid RowDefinitions="3*,3*,3*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
+                            <Image Source="avatar_profile_picture"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="3"
+                                   Margin="10,0,0,0"
+                                   />
+                            <Label Text="{Binding Title, Mode=OneWay}" 
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   FontSize="Medium"
+                                   Margin="10,0,0,0"
+                                   FontAttributes="Bold"/>
+                            <Label Text="2:13 PM" 
+                                   Grid.Row="0"
+                                   Grid.Column="2"                              
+                                   TextColor="Blue"/>
+                            <Label Text="Hello"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   FontSize="Medium"
+                                   Margin="10,0,0,0"
+                                   FontAttributes="Bold"/>
+                            <Label Text="At least I can say that've tried..."
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   Margin="10,0,0,0"
+                                   FontSize="Medium"/>
+                            <Image Source="star_favourite_icon"
+                                   Grid.Row="2"
+                                   Grid.Column="2"
+                                   HeightRequest="20"/>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <AbsoluteLayout>
+
+            <ImageButton Source="pencil_icon"
+                         BackgroundColor="#CC5042"
+                         CornerRadius="100"
+                         Padding="20"
+                         Command="{Binding CreateEmailCommand}"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"  
+                         AbsoluteLayout.LayoutBounds=".95,.95,80,80" />
+        </AbsoluteLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gmail_MockUp.Views.CreateEmailPage"
+             xmlns:viewmodels="clr-namespace:Gmail_MockUp.ViewModels" 
+             x:DataType="viewmodels:CreateEmailViewModel"
+             Title="Compose">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="clip_icon"/>
+        <ToolbarItem IconImageSource="send_icon"/>
+        <ToolbarItem Text="Other Options" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <Grid RowDefinitions="1*, 0.01*, 1*, 0.01*, 1*, 8*"
+          ColumnDefinitions="2*, 9*"
+          RowSpacing="0">
+        <!---TODO Make this a content view later-->
+        <Label Grid.Row="0" Grid.Column="0" Text="From" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Entry Grid.Row="0" Grid.Column="1" />
+        <BoxView   VerticalOptions="Start"
+           HorizontalOptions="Start"
+           HeightRequest="0.1"
+           WidthRequest="1000"  
+           Color="#5b5d68"
+           Grid.Row="1"
+           Grid.ColumnSpan="2"/>
+        <Label Grid.Row="2" Grid.Column="0" Text="To" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Entry Grid.Row="2" Grid.Column="1" />
+        <BoxView   VerticalOptions="Start"
+           HorizontalOptions="Start"
+           HeightRequest="0.1"
+           WidthRequest="1000"  
+           Color="#5b5d68"
+           Grid.Row="3"
+           Grid.ColumnSpan="2"/>
+        <Label Grid.Row="4" Grid.Column="0" Text="Subject" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Entry Grid.Row="4" Grid.Column="1"/>
+        <BoxView   VerticalOptions="Start"
+           HorizontalOptions="Start"
+           HeightRequest="0.1"
+           WidthRequest="1000"  
+           Color="#5b5d68"
+           Grid.Row="5"
+           Grid.ColumnSpan="2"/>
+        <Editor Grid.Row="5"
+                AutoSize="TextChanges"
+                Grid.ColumnSpan="2"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                Placeholder="Compose email"
+                IsSpellCheckEnabled="True"
+                IsTextPredictionEnabled="True">
+
+        </Editor>
+    </Grid>
+</ContentPage>
