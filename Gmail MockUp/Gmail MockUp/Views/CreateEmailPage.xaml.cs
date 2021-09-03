@@ -15,7 +15,7 @@ namespace Gmail_MockUp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateEmailPage : ContentPage
     {
-        public CreateEmailPage(ObservableCollection<Email> emails)
+        public CreateEmailPage(ObservableCollection<EmailData> emails)
         {
             InitializeComponent();
             BindingContext = new CreateEmailViewModel(emails);

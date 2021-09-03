@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Gmail_MockUp.ViewModels
@@ -16,6 +17,7 @@ namespace Gmail_MockUp.ViewModels
         private DateTime _dateSended = DateTime.Now;
         private string _from;
         private bool _hasAttachment = true;
+        private ImageSource _imageLocation;
         public string Title
         {
             get { return _title; }
@@ -59,19 +61,32 @@ namespace Gmail_MockUp.ViewModels
             get { return _hasAttachment; }
 
         }
-        public ObservableCollection<Email> Emails;
+        public ImageSource ImageLocation
+        {
+            get { return _imageLocation; }
+            set
+            {
 
-        public CreateEmailViewModel(ObservableCollection<Email> emails)
+                _imageLocation = value;
+                OnPropertyChanged(nameof(ImageLocation));
+
+            }
+        }
+        public ObservableCollection<EmailData> Emails;
+
+        public CreateEmailViewModel(ObservableCollection<EmailData> emails)
         {
             Emails = emails;
             SendEmailCommand = new Command(SendEmail);
+            SelectImageCommand = new Command(SelectImage);
         }
 
         public ICommand SendEmailCommand { get; }
+        public ICommand SelectImageCommand { get; }
 
         private async void SendEmail()
         {
-            Emails.Add(new Email(Title, Description, DateSended, From, HasAttachment));
+            Emails.Add(new EmailData(Title, Description, DateSended, From, HasAttachment));
             await Application.Current.MainPage.DisplayAlert("Correo enviado de manera existosa", "", "Ok");
             await Application.Current.MainPage.Navigation.PopAsync();
             
@@ -81,5 +96,18 @@ namespace Gmail_MockUp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        private async void SelectImage()
+        {
+            var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+            { 
+                Title = "Please pick a photo"
+            });
+            var stream = await result.OpenReadAsync();
+
+
+            ImageLocation = ImageSource.FromStream(() => stream);
+
+        }
+
     }
 }

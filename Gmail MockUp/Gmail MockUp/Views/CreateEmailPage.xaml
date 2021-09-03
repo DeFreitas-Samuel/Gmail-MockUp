@@ -6,11 +6,11 @@
              x:DataType="viewmodels:CreateEmailViewModel"
              Title="Compose">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="clip_icon"/>
+        <ToolbarItem IconImageSource="clip_icon" Command="{Binding SelectImageCommand}"/>
         <ToolbarItem IconImageSource="send_icon" Command="{Binding SendEmailCommand}"/>
         <ToolbarItem Text="Other Options" Order="Secondary"/>
     </ContentPage.ToolbarItems>
-    <Grid RowDefinitions="1*, 0.01*, 1*, 0.01*, 1*, 8*"
+    <Grid RowDefinitions="1*, 0.01*, 1*, 0.01*, 1*, 8*,2*"
           ColumnDefinitions="2*, 9*"
           RowSpacing="0">
         <Label Grid.Row="0" Grid.Column="0" Text="From" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
@@ -50,5 +50,9 @@
                 Text="{Binding Description}">
 
         </Editor>
+        <Image Source="{Binding ImageLocation}"
+               Grid.Row="6"
+               Grid.ColumnSpan="2"
+               HorizontalOptions="Center"/>
     </Grid>
 </ContentPage>

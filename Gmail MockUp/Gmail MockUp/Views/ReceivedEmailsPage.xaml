@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Gmail_MockUp.ViewModels" 
              x:Class="Gmail_MockUp.Views.ReceivedEmailsPage"
+             x:Name="ReceivedPage"
              Title="Primary">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="hamburger_button_icon" />
         <ToolbarItem IconImageSource="search_magnifier_icon"/>
+        <ToolbarItem IconImageSource="pencil_icon" 
+                     Command="{Binding CreateEmailCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <viewModels:ReceivedEmailsViewModel/>
@@ -20,7 +23,9 @@
                             <SwipeItems>
                                 <SwipeItem  Text="Delete"
                                             BackgroundColor="Red"
-                                            IconImageSource="recycle_bin"/>
+                                            IconImageSource="recycle_bin"
+                                            Command="{Binding Source={x:Reference ReceivedPage}, Path=BindingContext.DeleteEmailCommand}"
+                                            CommandParameter="{Binding}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">

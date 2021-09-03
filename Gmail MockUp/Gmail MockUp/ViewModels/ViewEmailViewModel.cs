@@ -8,10 +8,10 @@ namespace Gmail_MockUp.ViewModels
     class ViewEmailViewModel
     {
 
-        public Email EmailToDisplay { get; set; }
+        public EmailData EmailToDisplay { get; set; }
 
 
-        public ViewEmailViewModel(Email email) 
+        public ViewEmailViewModel(EmailData email) 
         {
             EmailToDisplay = email;
         }

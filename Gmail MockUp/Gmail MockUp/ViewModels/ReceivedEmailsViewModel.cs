@@ -12,8 +12,8 @@ namespace Gmail_MockUp.ViewModels
 {
     class ReceivedEmailsViewModel
     {
-        private Email _selectedEmail;
-        public Email SelectedEmail 
+        private EmailData _selectedEmail;
+        public EmailData SelectedEmail 
         {
             get 
             { 
@@ -28,29 +28,33 @@ namespace Gmail_MockUp.ViewModels
                 }
             }
         }
-        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>() 
-        {
-        
-        };
+        public ObservableCollection<EmailData> Emails { get; set; } = new ObservableCollection<EmailData>();
 
         public ReceivedEmailsViewModel()
         {
             CreateEmailCommand = new Command(OnCreateEmail);
-            ViewEmailCommand = new Command<Email>(OnViewEmail);
-        } 
+            ViewEmailCommand = new Command<EmailData>(OnViewEmail);
+            DeleteEmailCommand = new Command<EmailData>(DeleteEmail);
+        }
+
+        private void DeleteEmail(EmailData email)
+        {
+            Emails.Remove(email);
+        }
 
         private async void OnCreateEmail()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new CreateEmailPage(Emails));
         }
 
-        private async void OnViewEmail(Email email)
+        private async void OnViewEmail(EmailData email)
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewEmailPage(_selectedEmail));
         }
 
         public ICommand CreateEmailCommand { get; }
         public ICommand ViewEmailCommand { get; }
+        public ICommand DeleteEmailCommand { get; }
 
     }
 }

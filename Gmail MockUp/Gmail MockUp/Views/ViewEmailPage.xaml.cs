@@ -14,7 +14,7 @@ namespace Gmail_MockUp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewEmailPage : ContentPage
     { 
-        public ViewEmailPage(Email email)
+        public ViewEmailPage(EmailData email)
         {
             InitializeComponent();
             BindingContext = new ViewEmailViewModel(email);

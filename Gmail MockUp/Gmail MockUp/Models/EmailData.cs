@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Gmail_MockUp.Models
 {
-    public class Email
+    public class EmailData
     {
         public string Title { get; set; }
         public string Description { get; set; }
@@ -12,7 +12,7 @@ namespace Gmail_MockUp.Models
         public string From { get; set; }
         public bool HasAttachment { get; set; }
 
-        public Email(string title, string description, DateTime dateReceived, string from, bool hasAttachment)
+        public EmailData(string title, string description, DateTime dateReceived, string from, bool hasAttachment)
         {
             Title = title;
             Description = description;
