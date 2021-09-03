@@ -18,8 +18,9 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Delete"
-                                               BackgroundColor="Red"/>
+                                <SwipeItem  Text="Delete"
+                                            BackgroundColor="Red"
+                                            IconImageSource="recycle_bin"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
@@ -34,6 +35,8 @@
                                        Grid.Column="1"
                                        FontSize="Medium"
                                        Margin="10,10,0,0"
+                                       MaxLines="1" 
+                                       LineBreakMode="TailTruncation"
                                        FontAttributes="Bold"/>
                             <Label Text="2:13 PM" 
                                        Grid.Row="0"
@@ -45,12 +48,16 @@
                                        Grid.Column="1"
                                        FontSize="Medium"
                                        Margin="10,-2,0,0"
+                                       MaxLines="1" 
+                                       LineBreakMode="TailTruncation"
                                        FontAttributes="Bold"/>
                             <Label Text="{Binding Description}"
                                        Grid.Row="2"
                                        Grid.Column="1"
                                        Margin="10,-17,0,10"
                                        FontSize="Medium"
+                                       MaxLines="2" 
+                                       LineBreakMode="TailTruncation"
                                        />
                             <Image Source="star_favourite_icon"
                                        Grid.Row="1"

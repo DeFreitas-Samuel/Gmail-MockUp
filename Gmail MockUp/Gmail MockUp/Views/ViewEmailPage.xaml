@@ -7,9 +7,78 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="inbox_icon"/>
         <ToolbarItem IconImageSource="recycle_bin"/>
+        <ToolbarItem IconImageSource="email_message"/>
         <ToolbarItem Text="Other Options" Order="Secondary"/>
     </ContentPage.ToolbarItems>
-    <Grid RowDefinitions="1*" ColumnDefinitions="1*">
-        <Label Text="{Binding EmailToDisplay.Title}"/>
-    </Grid>
+    <StackLayout>
+        <Grid RowDefinitions="3*,0.1*,3*,20*" ColumnDefinitions="3*,1.5*,1.5*,1*,1*" >
+            <FlexLayout JustifyContent="SpaceBetween"
+                        Grid.Row="0"
+                        Margin="10"
+                        Grid.ColumnSpan="5">
+                <Label  Text="{Binding EmailToDisplay.Title}"
+                        FontSize="Large"
+                        MaxLines="1" 
+                        LineBreakMode="TailTruncation"
+                        FontAttributes="Bold"
+                        FlexLayout.AlignSelf="Center"
+
+                       />
+                <Image Source="star_favourite_icon"
+                       FlexLayout.AlignSelf="Center"
+                       HeightRequest="30"
+                       />
+            </FlexLayout>
+            <BoxView   VerticalOptions="Start"
+                       HorizontalOptions="Start"
+                       HeightRequest="0.1"
+                       WidthRequest="1000"  
+                       Color="#5b5d68"
+                       Grid.Row="1"
+                       Margin="0,-20,0,0"
+                       Grid.ColumnSpan="5"/>
+            <Grid   Grid.Row="2"
+                    Grid.ColumnSpan="5"
+                    RowDefinitions="1*,1*,1*" 
+                    ColumnDefinitions="1*,3*,2*,1*,1*"
+                    Margin="10,-20,0,0">
+
+                <Image Source="avatar_profile_picture"
+                       Grid.Column="0"
+                       Grid.RowSpan="2"
+
+                       />
+                <Label  Text="{Binding EmailToDisplay.From}"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        FontSize="Large"
+                        MaxLines="1" 
+                        LineBreakMode="TailTruncation"
+                        Margin="5,0,0,0"
+                        FontAttributes="Bold"/>
+                <Label  Text="to me"
+                        Grid.Column="1"
+                        Margin="5,-5,0,0"
+                        Grid.Row="1"/>
+                <Label  Text="{Binding EmailToDisplay.DateReceived.Date}"
+                        Grid.Column="1"
+                        Margin="5,-15,0,0"
+                        Grid.Row="2"/>
+                <Image  Source="forward_arrow_icon"
+                        Grid.Row="0"
+                        Grid.Column="3"/>
+                <Image  Source="options_icon"
+                        Grid.Row="0"
+                        Grid.Column="4"/>
+
+
+            </Grid>
+            <Label Text="{Binding EmailToDisplay.Description}"
+                   Grid.ColumnSpan="5"
+                   Grid.Row="3"
+                   FontSize="Medium"
+                   Margin="10,0,0,0"/>
+
+        </Grid>
+    </StackLayout>
 </ContentPage>

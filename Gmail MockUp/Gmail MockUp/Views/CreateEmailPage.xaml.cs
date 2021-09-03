@@ -1,6 +1,8 @@
-﻿using Gmail_MockUp.ViewModels;
+﻿using Gmail_MockUp.Models;
+using Gmail_MockUp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +15,12 @@ namespace Gmail_MockUp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateEmailPage : ContentPage
     {
-        public CreateEmailPage()
+        public CreateEmailPage(ObservableCollection<Email> emails)
         {
             InitializeComponent();
-            BindingContext = new CreateEmailViewModel();
+            BindingContext = new CreateEmailViewModel(emails);
         }
+
+
     }
 }

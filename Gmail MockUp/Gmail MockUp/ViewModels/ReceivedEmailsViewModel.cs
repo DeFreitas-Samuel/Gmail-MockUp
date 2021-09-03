@@ -30,9 +30,6 @@ namespace Gmail_MockUp.ViewModels
         }
         public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>() 
         {
-            new Email("Saludos", "Le estamos escribiendo para informarle", DateTime.Today, "Banco", true),
-            new Email("Bendiciones", "Le estamos escribiendo para bendecirle", DateTime.Today, "Papa", true),
-            new Email("Estudie", "Le estamos escribiendo para que estudie", DateTime.Today, "Profesor", true)
         
         };
 
@@ -44,7 +41,7 @@ namespace Gmail_MockUp.ViewModels
 
         private async void OnCreateEmail()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new CreateEmailPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new CreateEmailPage(Emails));
         }
 
         private async void OnViewEmail(Email email)

@@ -7,15 +7,14 @@
              Title="Compose">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="clip_icon"/>
-        <ToolbarItem IconImageSource="send_icon"/>
+        <ToolbarItem IconImageSource="send_icon" Command="{Binding SendEmailCommand}"/>
         <ToolbarItem Text="Other Options" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <Grid RowDefinitions="1*, 0.01*, 1*, 0.01*, 1*, 8*"
           ColumnDefinitions="2*, 9*"
           RowSpacing="0">
-        <!---TODO Make this a content view later-->
         <Label Grid.Row="0" Grid.Column="0" Text="From" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Entry Grid.Row="0" Grid.Column="1" />
+        <Entry Grid.Row="0" Grid.Column="1" Text="usuario.prueba@gmail.com" IsReadOnly="True" />
         <BoxView   VerticalOptions="Start"
            HorizontalOptions="Start"
            HeightRequest="0.1"
@@ -24,7 +23,7 @@
            Grid.Row="1"
            Grid.ColumnSpan="2"/>
         <Label Grid.Row="2" Grid.Column="0" Text="To" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Entry Grid.Row="2" Grid.Column="1" />
+        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding From}"/>
         <BoxView   VerticalOptions="Start"
            HorizontalOptions="Start"
            HeightRequest="0.1"
@@ -33,7 +32,7 @@
            Grid.Row="3"
            Grid.ColumnSpan="2"/>
         <Label Grid.Row="4" Grid.Column="0" Text="Subject" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Entry Grid.Row="4" Grid.Column="1"/>
+        <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Title}"/>
         <BoxView   VerticalOptions="Start"
            HorizontalOptions="Start"
            HeightRequest="0.1"
@@ -48,7 +47,7 @@
                 HorizontalOptions="Start"
                 Placeholder="Compose email"
                 IsSpellCheckEnabled="True"
-                IsTextPredictionEnabled="True">
+                Text="{Binding Description}">
 
         </Editor>
     </Grid>
