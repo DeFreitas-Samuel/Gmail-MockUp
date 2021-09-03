@@ -11,7 +11,7 @@
         <ToolbarItem Text="Other Options" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Grid RowDefinitions="3*,0.1*,3*,20*" ColumnDefinitions="3*,1.5*,1.5*,1*,1*" >
+        <Grid RowDefinitions="4*,0.1*,4*,20*, 5*" ColumnDefinitions="3*,1.5*,1.5*,1*,1*" >
             <FlexLayout JustifyContent="SpaceBetween"
                         Grid.Row="0"
                         Margin="10"
@@ -78,6 +78,10 @@
                    Grid.Row="3"
                    FontSize="Medium"
                    Margin="10,0,0,0"/>
+            <Image Source="{Binding EmailToDisplay.ImageLocation}"
+                   Grid.Row="4"
+                   Grid.ColumnSpan="5"
+                   HorizontalOptions="Center"/>
 
         </Grid>
     </StackLayout>

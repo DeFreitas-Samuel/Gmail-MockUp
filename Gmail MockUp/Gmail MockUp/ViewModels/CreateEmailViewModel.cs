@@ -16,8 +16,7 @@ namespace Gmail_MockUp.ViewModels
         private string _description;
         private DateTime _dateSended = DateTime.Now;
         private string _from;
-        private bool _hasAttachment = true;
-        private ImageSource _imageLocation;
+        private string _imageLocation;
         public string Title
         {
             get { return _title; }
@@ -56,12 +55,7 @@ namespace Gmail_MockUp.ViewModels
 
             }
         }
-        public bool HasAttachment
-        {
-            get { return _hasAttachment; }
-
-        }
-        public ImageSource ImageLocation
+        public string ImageLocation
         {
             get { return _imageLocation; }
             set
@@ -86,10 +80,16 @@ namespace Gmail_MockUp.ViewModels
 
         private async void SendEmail()
         {
-            Emails.Add(new EmailData(Title, Description, DateSended, From, HasAttachment));
-            await Application.Current.MainPage.DisplayAlert("Correo enviado de manera existosa", "", "Ok");
-            await Application.Current.MainPage.Navigation.PopAsync();
-            
+            if(string.IsNullOrEmpty(Title) || string.IsNullOrEmpty(Description) || string.IsNullOrEmpty(From)) 
+            {
+                await Application.Current.MainPage.DisplayAlert("Please fill all the fields", "", "Ok");
+            }
+            else 
+            {
+                Emails.Add(new EmailData(Title, Description, DateSended, From, ImageLocation));
+                await Application.Current.MainPage.DisplayAlert("Email sent succesfully", "", "Ok");
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
         }
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
@@ -98,14 +98,24 @@ namespace Gmail_MockUp.ViewModels
         }
         private async void SelectImage()
         {
-            var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
-            { 
-                Title = "Please pick a photo"
-            });
-            var stream = await result.OpenReadAsync();
+            try
+            {
+                var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+                {
+                    Title = "Please pick a photo"
+                });
+                var stream = await result.OpenReadAsync();
 
-
-            ImageLocation = ImageSource.FromStream(() => stream);
+                ImageLocation = result.FullPath;
+            }
+            catch (PermissionException)
+            {
+                await Application.Current.MainPage.DisplayAlert("Permissions were not granted", "", "Ok");
+            }
+            catch (NullReferenceException)
+            {
+                await Application.Current.MainPage.DisplayAlert("No picture was selected", "", "Ok");
+            }
 
         }
 

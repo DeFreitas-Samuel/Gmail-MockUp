@@ -10,15 +10,16 @@ namespace Gmail_MockUp.Models
         public string Description { get; set; }
         public DateTime DateReceived { get; set; }
         public string From { get; set; }
-        public bool HasAttachment { get; set; }
+        public string ImageLocation { get; set; }
 
-        public EmailData(string title, string description, DateTime dateReceived, string from, bool hasAttachment)
+        public EmailData(string title, string description, DateTime dateReceived, string from, string imageLocation = "")
         {
             Title = title;
             Description = description;
             DateReceived = dateReceived;
             From = from;
-            HasAttachment = hasAttachment;
+            ImageLocation = imageLocation;
+
         }
     }
 }
