@@ -89,6 +89,7 @@ namespace Gmail_MockUp.ViewModels
             {
                 int counter = Preferences.Get("counter", 0);
                 Emails.Add(new EmailData(Title, Description, DateSended, From, ImageLocation));
+
                 Preferences.Set($"Mail{counter} Title", Title);
                 Preferences.Set($"Mail{counter} Description", Description);
                 Preferences.Set($"Mail{counter} DateSended", DateSended);
@@ -96,7 +97,10 @@ namespace Gmail_MockUp.ViewModels
                 Preferences.Set($"Mail{counter} ImageLocation", ImageLocation);
                 counter++;
                 Preferences.Set("counter", counter);
+
+
                 await Application.Current.MainPage.DisplayAlert("Email sent succesfully", "", "Ok");
+                await Email.ComposeAsync(Title, Description, From);
                 CrossLocalNotifications.Current.Show(Title, "Correo Enviado");
                 await Application.Current.MainPage.Navigation.PopAsync();
             }
