@@ -25,6 +25,7 @@ namespace Gmail_MockUp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::Gmail_MockUp.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::Gmail_MockUp.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::Gmail_MockUp.Droid.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::Gmail_MockUp.Droid.Resource.Attribute.fontProviderAuthority;
@@ -11806,25 +11807,28 @@ namespace Gmail_MockUp.Droid
 			public const int pencil_icon = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int recycle_bin = 2131165334;
+			public const int plugin_lc_smallicon = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int search_magnifier_icon = 2131165335;
+			public const int recycle_bin = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int send_icon = 2131165336;
+			public const int search_magnifier_icon = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int star_favourite_icon = 2131165337;
+			public const int send_icon = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int test_custom_background = 2131165338;
+			public const int star_favourite_icon = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int tooltip_frame_dark = 2131165339;
+			public const int test_custom_background = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int tooltip_frame_light = 2131165340;
+			public const int tooltip_frame_dark = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int tooltip_frame_light = 2131165341;
 			
 			static Drawable()
 			{

@@ -1,4 +1,5 @@
 ﻿using Gmail_MockUp.Models;
+using Plugin.LocalNotifications;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -96,6 +97,7 @@ namespace Gmail_MockUp.ViewModels
                 counter++;
                 Preferences.Set("counter", counter);
                 await Application.Current.MainPage.DisplayAlert("Email sent succesfully", "", "Ok");
+                CrossLocalNotifications.Current.Show(Title, "Correo Enviado");
                 await Application.Current.MainPage.Navigation.PopAsync();
             }
         }
