@@ -86,7 +86,15 @@ namespace Gmail_MockUp.ViewModels
             }
             else 
             {
+                int counter = Preferences.Get("counter", 0);
                 Emails.Add(new EmailData(Title, Description, DateSended, From, ImageLocation));
+                Preferences.Set($"Mail{counter} Title", Title);
+                Preferences.Set($"Mail{counter} Description", Description);
+                Preferences.Set($"Mail{counter} DateSended", DateSended);
+                Preferences.Set($"Mail{counter} From", From);
+                Preferences.Set($"Mail{counter} ImageLocation", ImageLocation);
+                counter++;
+                Preferences.Set("counter", counter);
                 await Application.Current.MainPage.DisplayAlert("Email sent succesfully", "", "Ok");
                 await Application.Current.MainPage.Navigation.PopAsync();
             }

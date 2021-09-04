@@ -12,6 +12,7 @@ namespace Gmail_MockUp.Models
         public string From { get; set; }
         public string ImageLocation { get; set; }
 
+
         public EmailData(string title, string description, DateTime dateReceived, string from, string imageLocation = "")
         {
             Title = title;
@@ -19,7 +20,6 @@ namespace Gmail_MockUp.Models
             DateReceived = dateReceived;
             From = from;
             ImageLocation = imageLocation;
-
         }
     }
 }

@@ -28,6 +28,16 @@
                                             CommandParameter="{Binding}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="LightGray" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        
                         <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
                             <Image Source="avatar_profile_picture"
                                        Grid.Column="0"
@@ -81,6 +91,11 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <!--<Label Text="{Binding SelectedEmail.Title}"
+               FontSize="Large"
+               TextColor="Black"
+               AbsoluteLayout.LayoutFlags="PositionProportional"  
+               AbsoluteLayout.LayoutBounds=".95,.95,80,80" /> -->
 
         <ImageButton Source="pencil_icon"
                          BackgroundColor="#CC5042"
