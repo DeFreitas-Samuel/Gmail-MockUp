@@ -35,3 +35,8 @@
 ## Vista del correo con la foto anexada
 ![Screenshot_1630652487](https://user-images.githubusercontent.com/52897285/131966545-394f4f16-0ef1-456a-9847-69b765f32da8.png)
 
+## Notificacion cuando se envia un correo (Con el NuGet Package xam.plugins.notifier 3.0.1)
+
+![Screenshot_1630725781](https://user-images.githubusercontent.com/52897285/132080892-1d27ed0d-c798-4345-8801-ca4e5bed8a52.png)
+![Screenshot_1630725792](https://user-images.githubusercontent.com/52897285/132080893-b0580a85-7a3e-47ee-8bfd-d335506b1ac7.png)
+
