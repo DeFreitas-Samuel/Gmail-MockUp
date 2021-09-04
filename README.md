@@ -3,7 +3,8 @@
 
 ## Pagina que tendra los correos vacia al empezar
 ### Tiene dos botones para crear correo: uno como un toolbar item como lo especifico un punto de la tarea y otro como floating action button para imitar mejor el UI de Gmail. Ambos botones cumplen la misma funcion y usan el mismo comando
-![Screenshot_1630652122](https://user-images.githubusercontent.com/52897285/131965633-ee8a3df4-9f33-4b3f-8117-b63a833b1cb5.png)
+<img src="https://user-images.githubusercontent.com/52897285/131965633-ee8a3df4-9f33-4b3f-8117-b63a833b1cb5.png" width="400" height="800" />
+
 
 ## Pagina de creacion de correo
 ![Screenshot_1630652172](https://user-images.githubusercontent.com/52897285/131965759-0cb9e7dc-276e-4e31-a83f-77d7f887c866.png)
@@ -39,4 +40,13 @@
 
 ![Screenshot_1630725781](https://user-images.githubusercontent.com/52897285/132080892-1d27ed0d-c798-4345-8801-ca4e5bed8a52.png)
 ![Screenshot_1630725792](https://user-images.githubusercontent.com/52897285/132080893-b0580a85-7a3e-47ee-8bfd-d335506b1ac7.png)
+
+## Capacidad para enviar correos de verdad en la aplicacion
+
+![Screenshot_1630728084](https://user-images.githubusercontent.com/52897285/132081975-30b28b6e-138f-4ec3-8c42-e110b8231fd3.png)
+![Screenshot_1630728114](https://user-images.githubusercontent.com/52897285/132081977-706ddd1d-8051-43bf-9f65-08cad96cfd58.png)
+![Screenshot_1630728123](https://user-images.githubusercontent.com/52897285/132081972-6f3108b9-b82f-4df0-b77a-449120a93308.png)
+![Screenshot_1630728146](https://user-images.githubusercontent.com/52897285/132081973-0d8c1196-f96c-40b5-98fc-7fd6fdc90b4c.png)
+
+
 
