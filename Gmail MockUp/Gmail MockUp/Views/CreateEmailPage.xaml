@@ -31,8 +31,7 @@
            Color="#5b5d68"
            Grid.Row="3"
            Grid.ColumnSpan="2"/>
-        <Label Grid.Row="4" Grid.Column="0" Text="Subject" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Title}"/>
+        <Entry Grid.Row="4" Grid.Column="0" Text="{Binding Title}" Placeholder="Subject" Grid.ColumnSpan="2"/>
         <BoxView   VerticalOptions="Start"
            HorizontalOptions="Start"
            HeightRequest="0.1"
