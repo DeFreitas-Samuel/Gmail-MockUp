@@ -48,5 +48,5 @@
 ![Screenshot_1630728123](https://user-images.githubusercontent.com/52897285/132081972-6f3108b9-b82f-4df0-b77a-449120a93308.png)
 ![Screenshot_1630728146](https://user-images.githubusercontent.com/52897285/132081973-0d8c1196-f96c-40b5-98fc-7fd6fdc90b4c.png)
 
-
+## Aunque no se puede apreciar en las fotos la aplicacion tambien conserva todos los correos al cerrarse y volverse abrir mediante el uso de preferences de Xamarin.Essentials
 
