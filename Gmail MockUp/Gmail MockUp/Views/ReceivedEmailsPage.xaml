@@ -15,7 +15,9 @@
         <viewModels:ReceivedEmailsViewModel/>
     </ContentPage.BindingContext>
     <AbsoluteLayout>
-        <CollectionView ItemsSource="{Binding Emails}" SelectedItem="{Binding SelectedEmail}" SelectionMode="Single">
+        <CollectionView ItemsSource="{Binding Emails}" 
+                        SelectedItem="{Binding SelectedEmail}" 
+                        SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
@@ -28,15 +30,7 @@
                                             CommandParameter="{Binding}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="CommonStates">
-                                <VisualState Name="Selected">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor" Value="LightGray" />
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
+
                         
                         <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="2*,7*,2*" RowSpacing="0">
                             <Image Source="avatar_profile_picture"

@@ -50,6 +50,7 @@
                        />
                 <Label  Text="{Binding EmailToDisplay.From}"
                         Grid.Column="1"
+                        Grid.ColumnSpan="2"
                         Grid.Row="0"
                         FontSize="Large"
                         MaxLines="1" 

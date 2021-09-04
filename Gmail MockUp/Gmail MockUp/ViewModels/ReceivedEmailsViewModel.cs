@@ -11,9 +11,12 @@ using Xamarin.Essentials;
 
 namespace Gmail_MockUp.ViewModels
 {
-    class ReceivedEmailsViewModel
+    class ReceivedEmailsViewModel:INotifyPropertyChanged
     {
         private EmailData _selectedEmail;
+
+       
+
         public EmailData SelectedEmail 
         {
             get 
@@ -23,9 +26,11 @@ namespace Gmail_MockUp.ViewModels
             set 
             {
                 _selectedEmail = value;
+                OnPropertyChanged(nameof(SelectedEmail));
                 if (_selectedEmail != null)
                 {
                     ViewEmailCommand.Execute(_selectedEmail);
+                    SelectedEmail = null;
                 }
             }
         }
@@ -66,11 +71,18 @@ namespace Gmail_MockUp.ViewModels
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewEmailPage(_selectedEmail));
             SelectedEmail = null;
+           
         }
 
         public ICommand CreateEmailCommand { get; }
         private ICommand ViewEmailCommand { get; }
         public ICommand DeleteEmailCommand { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }
