@@ -33,6 +33,7 @@ namespace Gmail_MockUp.ViewModels
 
         public ReceivedEmailsViewModel()
         {
+            
             CreateEmailCommand = new Command(OnCreateEmail);
             ViewEmailCommand = new Command<EmailData>(OnViewEmail);
             DeleteEmailCommand = new Command<EmailData>(DeleteEmail);
@@ -42,7 +43,7 @@ namespace Gmail_MockUp.ViewModels
               
                 Emails.Add(new EmailData(Preferences.Get($"Mail{i} Title", ""),
                                          Preferences.Get($"Mail{i} Description", ""),
-                                         Preferences.Get($"Mail{i} DateSended", DateTime.MinValue),
+                                         Preferences.Get($"Mail{i} DateSended", ""),
                                          Preferences.Get($"Mail{i} From", ""),
                                          Preferences.Get($"Mail{i} ImageLocation", "")));
                 

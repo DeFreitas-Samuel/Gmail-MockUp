@@ -15,7 +15,7 @@ namespace Gmail_MockUp.ViewModels
     {
         private string _title;
         private string _description;
-        private DateTime _dateSended = DateTime.Now;
+        private readonly string _dateSended = DateTime.Now.ToString("dd MMM");
         private string _from;
         private string _imageLocation;
         public string Title
@@ -40,7 +40,7 @@ namespace Gmail_MockUp.ViewModels
 
             }
         }
-        public DateTime DateSended
+        public string DateSended
         {
             get { return _dateSended; }
 

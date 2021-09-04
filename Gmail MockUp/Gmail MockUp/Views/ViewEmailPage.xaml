@@ -60,7 +60,7 @@
                         Grid.Column="1"
                         Margin="5,-5,0,0"
                         Grid.Row="1"/>
-                <Label  Text="{Binding EmailToDisplay.DateReceived.Date}"
+                <Label  Text="{Binding EmailToDisplay.DateReceived}"
                         Grid.Column="1"
                         Margin="5,-15,0,0"
                         Grid.Row="2"/>

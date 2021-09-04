@@ -8,12 +8,12 @@ namespace Gmail_MockUp.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime DateReceived { get; set; }
+        public string DateReceived { get; set; }
         public string From { get; set; }
         public string ImageLocation { get; set; }
 
 
-        public EmailData(string title, string description, DateTime dateReceived, string from, string imageLocation = "")
+        public EmailData(string title, string description, string dateReceived, string from, string imageLocation = "")
         {
             Title = title;
             Description = description;

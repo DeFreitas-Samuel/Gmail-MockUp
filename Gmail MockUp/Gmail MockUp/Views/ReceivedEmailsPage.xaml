@@ -38,38 +38,38 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         
-                        <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="1.5*,7*,2*" RowSpacing="0">
+                        <Grid RowDefinitions="3*,3*,3*,0.5*" ColumnDefinitions="2*,7*,2*" RowSpacing="0">
                             <Image Source="avatar_profile_picture"
                                        Grid.Column="0"
                                        Grid.Row="0"
                                        Grid.RowSpan="3"
-                                       Margin="10,0,0,0"
+                                       Margin="20,0,0,0"
                                        />
                             <Label Text="{Binding From}" 
                                        Grid.Row="0"
                                        Grid.Column="1"
                                        FontSize="Medium"
-                                       Margin="10,10,0,0"
+                                       Margin="20,10,0,0"
                                        MaxLines="1" 
                                        LineBreakMode="TailTruncation"
                                        FontAttributes="Bold"/>
                             <Label Text="{Binding DateReceived}" 
                                        Grid.Row="0"
                                        Grid.Column="2"
-                                       Margin="0,10,0,0"
+                                       Margin="10,10,0,0"
                                        TextColor="Blue"/>
                             <Label Text="{Binding Title}"
                                        Grid.Row="1"
                                        Grid.Column="1"
                                        FontSize="Medium"
-                                       Margin="10,-2,0,0"
+                                       Margin="20,-2,0,0"
                                        MaxLines="1" 
                                        LineBreakMode="TailTruncation"
                                        FontAttributes="Bold"/>
                             <Label Text="{Binding Description}"
                                        Grid.Row="2"
                                        Grid.Column="1"
-                                       Margin="10,-17,0,10"
+                                       Margin="20,-17,0,10"
                                        FontSize="Medium"
                                        MaxLines="2" 
                                        LineBreakMode="TailTruncation"
