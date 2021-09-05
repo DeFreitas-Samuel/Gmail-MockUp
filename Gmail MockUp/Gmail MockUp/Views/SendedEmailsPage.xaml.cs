@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace Gmail_MockUp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ReceivedEmailsPage : ContentPage
+    public partial class SendedEmailsPage : ContentPage
     {
-        public ReceivedEmailsPage()
+        public SendedEmailsPage()
         {
             InitializeComponent();
         }

@@ -17,10 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SendedEmailsPage.xaml.cs">
+      <DependentUpon>SendedEmailsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\CreateEmailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ReceivedEmailsPage.xaml">
+    <EmbeddedResource Update="Views\SendedEmailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewEmailPage.xaml">

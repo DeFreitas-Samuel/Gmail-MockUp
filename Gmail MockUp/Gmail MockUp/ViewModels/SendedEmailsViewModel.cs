@@ -11,7 +11,7 @@ using Xamarin.Essentials;
 
 namespace Gmail_MockUp.ViewModels
 {
-    class ReceivedEmailsViewModel:INotifyPropertyChanged
+    class SendedEmailsViewModel:INotifyPropertyChanged
     {
         private EmailData _selectedEmail;
 
@@ -36,16 +36,16 @@ namespace Gmail_MockUp.ViewModels
         }
         public ObservableCollection<EmailData> Emails { get; set; } = new ObservableCollection<EmailData>();
 
-        public ReceivedEmailsViewModel()
+        public SendedEmailsViewModel()
         {
-            
             CreateEmailCommand = new Command(OnCreateEmail);
             ViewEmailCommand = new Command<EmailData>(OnViewEmail);
             DeleteEmailCommand = new Command<EmailData>(DeleteEmail);
             int EmailsToRender = Preferences.Get("counter", 0);
+            
             for (int i = 0; i < EmailsToRender ; i++)
             {
-              
+                
                 Emails.Add(new EmailData(Preferences.Get($"Mail{i} Title", ""),
                                          Preferences.Get($"Mail{i} Description", ""),
                                          Preferences.Get($"Mail{i} DateSended", ""),
@@ -69,6 +69,7 @@ namespace Gmail_MockUp.ViewModels
 
         private async void OnViewEmail(EmailData email)
         {
+
             await Application.Current.MainPage.Navigation.PushAsync(new ViewEmailPage(_selectedEmail));
             SelectedEmail = null;
            

@@ -11,7 +11,7 @@ namespace Gmail_MockUp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new ReceivedEmailsPage())
+            MainPage = new NavigationPage(new SendedEmailsPage())
             {
                 BarBackgroundColor = Color.FromRgb(204,80,66)
                 

@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Gmail_MockUp.ViewModels" 
-             x:Class="Gmail_MockUp.Views.ReceivedEmailsPage"
-             x:Name="ReceivedPage"
+             x:Class="Gmail_MockUp.Views.SendedEmailsPage"
+             x:Name="SendedPage"
              Title="Primary">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="hamburger_button_icon" />
@@ -12,7 +12,7 @@
                      Command="{Binding CreateEmailCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <viewModels:ReceivedEmailsViewModel/>
+        <viewModels:SendedEmailsViewModel/>
     </ContentPage.BindingContext>
     <AbsoluteLayout>
         <CollectionView ItemsSource="{Binding Emails}" 
@@ -26,7 +26,7 @@
                                 <SwipeItem  Text="Delete"
                                             BackgroundColor="Red"
                                             IconImageSource="recycle_bin"
-                                            Command="{Binding Source={x:Reference ReceivedPage}, Path=BindingContext.DeleteEmailCommand}"
+                                            Command="{Binding Source={x:Reference SendedPage}, Path=BindingContext.DeleteEmailCommand}"
                                             CommandParameter="{Binding}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
@@ -47,7 +47,7 @@
                                        MaxLines="1" 
                                        LineBreakMode="TailTruncation"
                                        FontAttributes="Bold"/>
-                            <Label Text="{Binding DateReceived}" 
+                            <Label Text="{Binding DateSended}" 
                                        Grid.Row="0"
                                        Grid.Column="2"
                                        Margin="10,10,0,0"
